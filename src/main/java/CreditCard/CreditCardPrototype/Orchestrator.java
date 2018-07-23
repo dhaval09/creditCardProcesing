@@ -7,7 +7,8 @@ public class Orchestrator {
 	String creditCardNumber;
 	String dollarAmount;
 	creditCardMethods callFunction = new creditCardMethods();
-
+	
+	 
 	public boolean formatInput(String input) {
 		boolean flag = false ;
 		String[] splitInput = input.split("\\s|\\$+");
@@ -33,7 +34,8 @@ public class Orchestrator {
 		}
 		return flag;
 	}
-
+	
+	/*This method prints the final output*/
 	public void display() {
 		callFunction.print();
 	}
