@@ -40,8 +40,6 @@ public class AppTest {
 		String name = "FAIL";
 		String creditCard = "4111111111111";
 		String amount = "1000";
-		String value = testStub.add(name, creditCard, amount);
-		System.out.println("WHAT IS THIS"+ value);
 		Assert.assertEquals(testStub.add(name, creditCard, amount), "ERROR");
 	}
 	@Test()
@@ -52,8 +50,6 @@ public class AppTest {
 		String amount = "1000";
 		String charge = "500";
 		testStub.add(name, creditCard, amount);
-		String value = testStub.add(name, creditCard, amount);
-		System.out.println("WHAT IS THIS"+ value);
 		Assert.assertEquals(testStub.charge(name, charge), "SUCCESS");
 		
 	}
@@ -64,8 +60,6 @@ public class AppTest {
 	    String creditCard = "4111111111111111";
 		String amount = "1000";
 		String charge = "5000";
-		String value =testStub.add(name, creditCard, amount);
-		System.out.println("WHAT IS THIS"+ value);
 		Assert.assertEquals(testStub.charge(name, charge), "ERROR");
 	}
 	@Test()
