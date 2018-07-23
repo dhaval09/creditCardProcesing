@@ -6,7 +6,7 @@ This is a simple Application for Basic Credit Card Processing.
 This application can be built in any language,but I choose to use JAVA for the application.<br> 
 I felt it would be very easy and simple to design a robust and scalable framework in Java,and also Java is one my strongest language. 
 <br>
-I have built this application as a micro Service Architecture.<br> We have the main controller called the orchestrator who will be the mediator to recieve all the request and call the services based on the request.<br>
+I have built this application as a MicroService Architecture.<br>.We have the main controller called the orchestrator who will be the single point of all incoming request.<br> The orchestrator will read the request and call the appropriate service/methods.<br>
 This makes the architecture very robust,easily scalable and service independent.<br>
 This application can accept input from command line or stdin and process the request accordingly.
 
@@ -14,11 +14,11 @@ This application can accept input from command line or stdin and process the req
 This application is written in Java with Maven. <br> 
 Test cases are written using TestNG.
 
-##Important Notes
+## Important Notes
 Since this was a test and no database is used,I have used different data structures to demonstrate my skills as well as to accomplish the task.</br>
 Please make sure the input.txt file is copied to Target folder.<br>
 
-##Assumptions 
+## Assumptions 
 Since the assumption given was that all input would be valid, I have implemented minimal checks.<br>
 All the methods have automated test cases to check for correctness
 
