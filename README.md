@@ -8,13 +8,15 @@ This application can accept input from command line or stdin and process the req
 
 #How to build the Application
 #Using eclipse 
---This is a maven structured application , you can easily import it in eclipse by importing this application as a maven application.
-  Once the application has been imported , you can do a RUN AS - > Maven install and then RUN AS -> Java Application or RUN AS - >              DEBUG install and then DEBUG AS -> Java Application
+--This is a maven structured application , you can easily import it in eclipse by importing this application as an existing maven project.
+Once the application has been imported , you can do a :
+RUN AS - > Maven install and then RUN AS -> Java Application or 
+DEBUG AS - >  DEBUG install and then DEBUG AS -> Java Application
+
 --When we do a install it will fetch all the dependencies and run all the Test Cases  and then you can chose run as java application and pass VM arguments through eclipse
 
 #Using CMD 
 Please note since we are building a maven project javac wont work . 
-
 Please use this approach to run the code 
 --make sure you navigate to project path . 
 you can then do mvn install to build the jar . 
