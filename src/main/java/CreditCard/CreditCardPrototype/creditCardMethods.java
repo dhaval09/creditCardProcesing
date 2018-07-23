@@ -12,23 +12,29 @@ public class creditCardMethods {
 	Validation validate = new Validation();
 
 	/* This method will add new customer with a valid credit card */
-	public void add(String name, String creditCard, String amount) {
+	public String add(String name, String creditCard, String amount) {
+		String returnValue = "ERROR";
 		try {
+			
 			boolean flag = validate.validateCreditCardNumber(creditCard);
 
-			if (flag) {
+			if (flag && !amount.isEmpty()) {
 				Limit.put(name, amount);
+				returnValue = "SUCCESS";
 			} else {
 				balanceSheet.put(name, "error");
+				returnValue = "ERROR";
 			}
 		} catch (Exception e) {
 		}
+		return returnValue;
 	}
 
 	/* This method will add charge the customer */
-	public void charge(String name, String charge) {
+	public String charge(String name, String charge) {
+		String returnValue = "ERROR";
 		String LimitAllowed = Limit.get(name);
-		if (!LimitAllowed.equals("error")) {
+		if (!LimitAllowed.equals("error") && !charge.isEmpty()) {
 			String currentBalance = balanceSheet.get(name) != null ? balanceSheet.get(name) : "0";
 			int LimitAllowedToCharge = Integer.parseInt(LimitAllowed);
 			int currentCharges = Integer.parseInt(currentBalance);
@@ -37,20 +43,25 @@ public class creditCardMethods {
 				int BalanceCharge = amountToCharge + currentCharges;
 				String BalanceLeft = String.valueOf(BalanceCharge);
 				balanceSheet.put(name, BalanceLeft);
+				returnValue = "SUCCESS";
 			}
 		}
+		return returnValue;
 	}
 
 	/* This method will add credit the customer */
-	public void credit(String name, String credit) {
+	public String credit(String name, String credit) {
+		String returnValue = "ERROR";
 		String Balance = balanceSheet.get(name);
-		if (!Balance.equals("error")) {
+		if (!Balance.equals("error") && !credit.isEmpty()) {
 			int availableBalance = Integer.parseInt(Balance);
 			int amountToCredit = Integer.parseInt(credit);
 			availableBalance = availableBalance - amountToCredit;
 			String BalanceLeft = String.valueOf(availableBalance);
 			balanceSheet.put(name, BalanceLeft);
+			returnValue = "SUCCESS";
 		}
+		return returnValue;
 	}
 
 	public void print() {

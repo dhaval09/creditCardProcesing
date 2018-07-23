@@ -1,85 +1,98 @@
 package CreditCard.CreditCardPrototype;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.testng.Assert;
+import org.testng.TestNG;
+import org.testng.annotations.Test;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest extends TestCase {
+public class AppTest {
 	Orchestrator run = new Orchestrator();
 	creditCardMethods testStub = new creditCardMethods();
 	
+	@Test()
 	public void checkInputWithInvalidString() {
-		run.formatInput("this is not a valid String");
-	}
-
-	public void checkInputWithValidString() {
-
-		run.formatInput("Add Tom 4111111111111111 $1000");
-	}
-
-	public void checkInputWithNull() {
-		run.formatInput("");
+		Assert.assertFalse(run.formatInput("this is not a valid String"));
 	}
 	
+	@Test()
+	public void checkInputWithValidString() {
+		Assert.assertTrue(run.formatInput("Add Tom 4111111111111111 $1000"));
+	}
+
+	@Test()
+	public void checkInputWithNull() {
+		Assert.assertFalse(run.formatInput(""));
+	}
+	
+	@Test()
 	public void testAddwithValid()
 	{
 		String name = "TOM";
-		String creditCard = "4111111111111111 ";
+		String creditCard = "4111111111111111";
 		String amount = "1000";
-		testStub.add(name, creditCard, amount);
+		Assert.assertEquals(testStub.add(name, creditCard, amount), "SUCCESS");
 	}
+	@Test()
 	public void testAddwithInValid()
 	{
 		String name = "FAIL";
-		String creditCard = " ";
+		String creditCard = "4111111111111";
 		String amount = "1000";
-		testStub.add(name, creditCard, amount);
+		String value = testStub.add(name, creditCard, amount);
+		System.out.println("WHAT IS THIS"+ value);
+		Assert.assertEquals(testStub.add(name, creditCard, amount), "ERROR");
 	}
-	
+	@Test()
 	public void testChargewithValid()
 	{
 		String name = "TOM";
-		String creditCard = "4111111111111111 ";
+		String creditCard = "4111111111111111";
 		String amount = "1000";
 		String charge = "500";
 		testStub.add(name, creditCard, amount);
-		testStub.charge(name, charge);
+		String value = testStub.add(name, creditCard, amount);
+		System.out.println("WHAT IS THIS"+ value);
+		Assert.assertEquals(testStub.charge(name, charge), "SUCCESS");
+		
 	}
+	@Test()
 	public void testChargewithInValid()
 	{
 		String name = "TOM";
-	    String creditCard = "4111111111111111 ";
+	    String creditCard = "4111111111111111";
 		String amount = "1000";
 		String charge = "5000";
-		testStub.add(name, creditCard, amount);
-		testStub.charge(name, charge);
+		String value =testStub.add(name, creditCard, amount);
+		System.out.println("WHAT IS THIS"+ value);
+		Assert.assertEquals(testStub.charge(name, charge), "ERROR");
 	}
-	
+	@Test()
 	public void testCreditwithValid()
 	{
 		String name = "TOM";
-		String creditCard = "4111111111111111 ";
+		String creditCard = "4111111111111111";
 		String amount = "1000";
 		String charge = "300";
 		String credit = "100";
 		testStub.add(name, creditCard, amount);
 		testStub.charge(name, charge);
-		testStub.credit(name, credit);;
+		Assert.assertEquals(testStub.credit(name, credit), "SUCCESS");
+		
 	}
-	
+	@Test()
 	public void testCreditwithInValid()
 	{
 		String name = "TOM";
-		String creditCard = "4111111111111111 ";
-		String amount = "1000";
-		String charge = "1400";
-		String credit = "1343.235";
+		String creditCard = "4111111111111111";
+		String amount = "1";
+		String charge = "2";
+		String credit = "";
 		testStub.add(name, creditCard, amount);
 		testStub.charge(name, charge);
-		testStub.credit(name, credit);;
+		Assert.assertEquals(testStub.credit(name, credit), "ERROR");
+		
 	}
 	
 }
