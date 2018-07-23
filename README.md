@@ -1,14 +1,29 @@
 # creditCardProcesing
 This is a simple Application for Basic Credit Card Processing. 
 
+
+## Design Approach
+This application can be built in any language,but I choose to use JAVA for the application.<br> 
+I felt it would be very easy and simple to design a robust and scalable framework in Java,and also Java is one my strongest language. 
+<br>
+I have built this application as a micro Service Architecture.<br> We have the main controller called the orchestrator who will be the mediator to recieve all the request and call the services based on the request.<br>
+This makes the architecture very robust,easily scalable and service independent.<br>
 This application can accept input from command line or stdin and process the request accordingly.
 
-
 ## Language 
-This application is written in Java with Maven . 
+This application is written in Java with Maven. <br> 
+Test cases are written using TestNG.
+
+##Important Notes
+Since this was a test and no database is used,I have used different data structures to demonstrate my skills as well as to accomplish the task.</br>
+Please make sure the input.txt file is copied to Target folder.<br>
+
+##Assumptions 
+Since the assumption given was that all input would be valid, I have implemented minimal checks.<br>
+All the methods have automated test cases to check for correctness
 
 ## How to build the Application
-### Using eclipse 
+#### Using eclipse 
 This is a maven structured application. <br>
 You can easily import it in eclipse by importing this application as an existing maven project.<br>
 Once the application has been imported,you can do a:<br>
@@ -16,7 +31,7 @@ RUN AS - > Maven install and then RUN AS -> Java Application
 or <br>
 DEBUG AS - >  DEBUG install and then DEBUG AS -> Java Application
 
-## Using CMD 
+#### Using CMD 
 Please note since we are building a maven project javac wont work . 
 Please use this approach to run the code 
 <br>
@@ -33,23 +48,17 @@ or <br>
 ps: please make sure you have copied the input.txt in the target folder.
 ```
 
-## Using Console
+#### Using Console
 #######You can pass the input either filename or commands and then press enter for the input to be accepted
-Once the application has been imported , you can do a :<br>
-RUN AS - > Maven install and then RUN AS -> Java Application <br> or <br>
+Once the application has been imported , you can either:<br>
+RUN AS - > Maven install and then RUN AS -> Java Application 
+or <br>
 DEBUG AS - >  DEBUG install and then DEBUG AS -> Java Application
+and then pass the input param in the console window. 
 
 ```
 PS:Please press Enter after the input is typed .
 ```
-
-## Design Approach
-This application can be built in any language , but I choose to use JAVA for the application as I felt it would be very easy and simple to design a robust and scalable framework in JAVA ,and also Java is one my strongest language. 
-
-I have built this application as a REST design (Micro Service Architecture) where we have a orchestrator (main controller) who will determine based on the request which service should handle the request.This makes the architecture very robust,easily scalable and service independent.
-
->Note: Since this was a test and no database have been used , I have tried to use different dataStructures to demonstrate my skills as well as to accomplish the task . 
-
 
 ## Input and Result 
 
