@@ -1,10 +1,12 @@
 package CreditCard.CreditCardPrototype;
 
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -51,8 +53,24 @@ public class App {
 		}
 	}
 		else {
-			run.formatInput(lineOfInput);
-		}
+			while (scanner.hasNextLine()) {
+				ArrayList<Object> tokens = new ArrayList<>();
+				Scanner lineScanner = new Scanner(scanner.nextLine());
 
+				while (lineScanner.hasNext()) {
+					tokens.add(lineScanner.next());
+				}
+				
+				lineScanner.close();
+				System.out.println(tokens);
+				for (Object s : tokens)
+				{
+					lineOfInput += s + "\t";
+					run.formatInput(lineOfInput);
+				}
+			
+			
+		}
+		}
 	}
 }
