@@ -11,7 +11,7 @@ public class creditCardMethods {
 	HashMap<String, String> balanceSheet = new HashMap<String, String>();
 	Validation validate = new Validation();
 
-	/* This method will add new customer with a credit card */
+	/* This method will add new customer with a valid credit card */
 	public void add(String name, String creditCard, String amount) {
 		try {
 			boolean flag = validate.validateCreditCardNumber(creditCard);
@@ -22,11 +22,10 @@ public class creditCardMethods {
 				balanceSheet.put(name, "error");
 			}
 		} catch (Exception e) {
-
 		}
-
 	}
 
+	/* This method will add charge the customer */
 	public void charge(String name, String charge) {
 		String LimitAllowed = Limit.get(name);
 		if (!LimitAllowed.equals("error")) {
@@ -42,6 +41,7 @@ public class creditCardMethods {
 		}
 	}
 
+	/* This method will add credit the customer */
 	public void credit(String name, String credit) {
 		String Balance = balanceSheet.get(name);
 		if (!Balance.equals("error")) {
@@ -55,7 +55,6 @@ public class creditCardMethods {
 
 	public void print() {
 		TreeMap<String, String> sorted = new TreeMap<>();
-
 		// Copy all data from hashMap into TreeMap
 		sorted.putAll(balanceSheet);
 		for (Entry<String, String> entry : sorted.entrySet())

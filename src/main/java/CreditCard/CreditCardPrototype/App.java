@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Hello world!
+ * @author Dhaval
  *
  */
 public class App {
@@ -35,15 +35,15 @@ public class App {
 			String line;
 
 			try {
-				while ((line = stdin.readLine()) != null && line.length()!= 0 || stdin.ready()) {
-				    String[] input = line.split(" ");
+				while ((line = stdin.readLine()) != null && line.length() != 0 || stdin.ready()) {
+					String[] input = line.split(" ");
 
-				if (input[0].contains(("txt"))) {
-					ProcessFilebyName(input[0]);
-				} else {
-					processInput(input);
+					if (input[0].contains(("txt"))) {
+						ProcessFilebyName(input[0]);
+					} else {
+						processInput(input);
+					}
 				}
-}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -51,21 +51,18 @@ public class App {
 		}
 		run.display();
 	}
-
+    
+	/*Method reads a file name as input and processes it */
 	public static void ProcessFilebyName(String fileName) {
 		try {
 			FileInputStream fstream = new FileInputStream(fileName);
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
-			// BufferedReader input = new BufferedReader(new FileReader(aFile));
-
 			String strLine = null;
 			// Read File Line By Line
 			while ((strLine = br.readLine()) != null) {
 				// Print the content on the console
-
 				run.formatInput(strLine);
-
 			}
 			// Close the input stream
 			in.close();
@@ -75,6 +72,7 @@ public class App {
 		}
 	}
 
+	/*Method reads an String array as input either from command line or console and processes it */
 	public static void processInput(String[] input) {
 		String inputToParse = new String();
 		for (int i = 0; i < input.length; i++) {
