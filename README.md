@@ -31,6 +31,16 @@ or
 ps: please make sure you have copied the input.txt in the target folder . 
 java -jar CreditCardPrototype-0.0.1-SNAPSHOT.jar input.txt
 
+#Using Console
+Once the application has been imported , you can do a :
+RUN AS - > Maven install and then RUN AS -> Java Application or 
+DEBUG AS - >  DEBUG install and then DEBUG AS -> Java Application
+
+You can pass the input either filename or commands and then press enter for the input to be accepted 
+
+```
+PS:Please press Enter after the input is typed .
+```
 
 #Design Approach
 --This application can be built in any language , but I choose to use JAVA for the application as I felt it would be very easy and simple to design a robust and scalable framework in JAVA , and also Java is one my strongest language. 
