@@ -10,8 +10,24 @@ This application can accept input from command line or stdin and process the req
 #Using eclipse 
 --This is a maven structured application , you can easily import it in eclipse by importing this application as a maven application.
   Once the application has been imported , you can do a RUN AS - > Maven install and then RUN AS -> Java Application or RUN AS - >              DEBUG install and then DEBUG AS -> Java Application
---When we do a install it will fetch all the dependencies and run all the Test Cases 
+--When we do a install it will fetch all the dependencies and run all the Test Cases  and then you can chose run as java application and pass VM arguments through eclipse
+
 #Using CMD 
+Please note since we are building a maven project javac wont work . 
+
+Please use this approach to run the code 
+--make sure you navigate to project path . 
+you can then do mvn install to build the jar . 
+
+--Then navigate to the jar
+for example C:\Users\Dhaval\eclipse-workspace\CreditCardPrototype\target>
+
+Once in the target folder you can run it like this 
+java -jar CreditCardPrototype-0.0.1-SNAPSHOT.jar Add Tom 4111111111111111 $1000 Add Lisa 5454545454545454 $3000 Add Quincy 1234567890123456 $2000 Charge Tom $500 Charge Tom $800 Charge Lisa $7 Credit Lisa $100 Credit Quincy $200
+
+or
+ps: please make sure you have copied the input.txt in the target folder . 
+java -jar CreditCardPrototype-0.0.1-SNAPSHOT.jar input.txt
 
 
 #Design Approach
