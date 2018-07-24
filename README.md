@@ -3,8 +3,7 @@ This is a simple Application for Basic Credit Card Processing.
 
 
 ## Design Approach
-This application can be built in any language,but I choose to use JAVA for the application.<br>  
-This application is designed as a Mirco service with Mvc patter.<br>
+This application can be built in any language,but I choose to use JAVA for the application.<br>This application is designed as a Mirco service with Mvc patter.<br>
 We have the main controller called the orchestrator who will be the single point of all incoming request.<br> The orchestrator will read the request and call the appropriate service/methods.<br>
 This makes the architecture very robust,easily scalable and service independent.<br>
 This application can accept input from command line or stdin and process the request accordingly.
